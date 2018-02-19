@@ -11,6 +11,7 @@
       "assets": [
         "assets",
         "src/assets",
+        "images",
         "favicon.ico"
       ],
       "index": "index.html",

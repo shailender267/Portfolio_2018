@@ -1,5 +1,5 @@
 
 .bg-header{
-    background: url(../src/assets/images/bg-header.jpg);
+    background: url('../assets/images/bg-header.jpg');
     height: 500px;
 }   

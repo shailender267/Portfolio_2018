@@ -1,0 +1,10 @@
+@import "custom";
+@import "~bootstrap/scss/bootstrap";
+
+.jumbotron {
+    background: pink;
+
+    nav{
+        background: yellow; 
+    }
+}

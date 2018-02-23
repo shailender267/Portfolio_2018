@@ -1,22 +1,38 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<header class="bg-header">
-  <div class="logo-section">
-    <a href="#">
-      <img class="logo" src="../src/assets/images/profileImage.jpg" alt="Devi Shailender Singh">
-      <figcaption>Devi Shailender Singh</figcaption>
-    </a>
-  </div>
-  <nav>
-    <a href="#">Home</a> 
-    <a href="#">Projects</a> 
-    <a href="#">About</a> 
-    <a href="#">Contact</a>
-    </nav>
+<header class="bg-header"> 
+  <section class="container">
+    <div class="row"> 
+      <div class="col-sm-12">
+        <nav class="navbar navbar-expand-sm navbar-inverse justify-content-end sticky-top">
+            <div class="container">
+                <a href="#" class="mt-0">
+                    <img class="logo-img" src="../src/assets/images/profileImage.jpg" alt="Devi Shailender Singh">
+                    <!-- <figcaption>Devi Shailender Singh</figcaption> -->
+                  </a>
+                <button class="navbar-toggler" data-toggle="collapse" data-target="#mainNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="mainNav">
+                    <div class="navbar-nav">
+                        <a class="nav-item nav-link active" href="#">Home</a>
+                        <a class="nav-item nav-link" href="#">Skills</a> 
+                        <a class="nav-item nav-link" href="#">Project</a>
+                        <a class="nav-item nav-link" href="#">About</a>
+                        <a class="nav-item nav-link" href="#">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+       </div>
+    </div>
+  </section>
+  <section class="container text-center title-section">
+      <h1 class="mb-0">H1, I'm Devi Shailender Singh</h1>
+      <h2>UX/UI Designer | Fron End Developer</h2>
+      <button type="button" class="btn btn-danger mt-5">Download Resume</button>
+  </section>
 </header>
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
+<div style="text-align:center"> 
   <app-landing-page></app-landing-page>
   <app-project-page></app-project-page>
   <app-about-page></app-about-page>

@@ -1,7 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+@import "assets/sass-files/_custom";
+@import "~bootstrap/scss/bootstrap";
+body{
+    font-family: 'Roboto', sans-serif;
+}
 
-.bg-header {
-    background: pink;
+body {
+    background: red;
 
     nav{
         background: green; 

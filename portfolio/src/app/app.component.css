@@ -1,5 +1,41 @@
 
 .bg-header{
-    background: url('../assets/images/bg-header.jpg');
-    height: 500px;
+    background: url('../assets/images/bg-header.jpg') no-repeat;
+    background-size: 100%;
+    
 }   
+
+.logo-img{
+    border-radius: 50%;
+    width: 50px;
+} 
+
+.navbar-toggler {
+    color: rgba(255,255,255,.5);
+    border-color: rgba(255,255,255,.1);
+} 
+
+/* .navbar-toggler-icon {
+    background-image: url(data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://ww…p='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E);
+} */
+.navbar-expand-sm .navbar-nav .nav-link {
+    color: #a8b9c0;
+    font-size: 15px;
+    padding: 0px 20px;
+}
+
+.navbar-expand-sm .navbar-nav .nav-link.active {
+    color: #00c7c0;
+}
+
+h1{
+    font-size: 50px;
+    color: #f0f8fb;
+}
+h2{
+    color: #a8b9c0;
+    font-size: 26px; 
+}
+.title-section{
+    padding: 52px 15px !important;
+}

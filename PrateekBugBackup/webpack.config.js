@@ -11,6 +11,7 @@ const cssnano = require('cssnano');
 const postcssImports = require('postcss-import');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
+
 const { NoEmitOnErrorsPlugin, SourceMapDevToolPlugin, NamedModulesPlugin } = require('webpack');
 const { NamedLazyChunksWebpackPlugin, BaseHrefWebpackPlugin } = require('@angular/cli/plugins/webpack');
 const { CommonsChunkPlugin } = require('webpack').optimize;
@@ -25,6 +26,10 @@ const baseHref = "";
 const deployUrl = "";
 const projectRoot = process.cwd();
 const maximumInlineSize = 10;
+// const extractSass = new ExtractTextPlugin({
+//   filename: "[name].[contenthash].css",
+//   disable: process.env.NODE_ENV === "development"
+// });
 const postcssPlugins = function (loader) {
         // safe settings based on: https://github.com/ben-eb/cssnano/issues/358#issuecomment-283696193
         const importantCommentRe = /@preserve|@licen[cs]e|[@#]\s*source(?:Mapping)?URL|^!/i;
@@ -193,34 +198,9 @@ module.exports = {
         "exclude": [
           path.join(process.cwd(), "src\\styles.css")
         ],
-        "test": /\.css$/,
-        "use": [
-          {  fallback: 'style-loader'},
-          "exports-loader?module.exports.toString()",
-          {
-            "loader": "css-loader",
-            "options": {
-              "sourceMap": false,
-              "import": false
-            }
-          },
-          {
-            "loader": "postcss-loader",
-            "options": {
-              "ident": "postcss",
-              "plugins": postcssPlugins,
-              "sourceMap": false
-            }
-          }
-        ],  
-      }, 
-      {
-        "exclude": [
-          path.join(process.cwd(), "src\\styles.css")
-        ],
-        "test": /\.scss$|\.sass$/,
-        "use": [
-          "exports-loader?module.exports.toString()",
+        "test": /\.css$|\.scss$|\.sass$/, 
+        "use": ExtractTextPlugin.extract([
+          //"exports-loader?module.exports.toString()",
           {
             "loader": "css-loader",
             "options": {
@@ -236,6 +216,17 @@ module.exports = {
               "sourceMap": false
             }
           },
+          // {
+          //   loader: 'postcss-loader', // Run post css actions
+          //   options: {
+          //     plugins: function () { // post css plugins, can be exported to postcss.config.js
+          //       return [
+          //         require('precss'),
+          //         require('autoprefixer')
+          //       ];
+          //     }
+          //   }
+          // },
           {
             "loader": "sass-loader",
             "options": {
@@ -243,186 +234,17 @@ module.exports = {
               "precision": 8,
               "includePaths": []
             }
-          }
-        ]
-      },
-      {
-        "exclude": [
-          path.join(process.cwd(), "src\\styles.css")
-        ],
-        "test": /\.less$/,
-        "use": [
-          "exports-loader?module.exports.toString()",
-          {
-            "loader": "css-loader",
-            "options": {
-              "sourceMap": false,
-              "import": false
-            }
-          },
-          {
-            "loader": "postcss-loader",
-            "options": {
-              "ident": "postcss",
-              "plugins": postcssPlugins,
-              "sourceMap": false
-            }
-          },
-          {
-            "loader": "less-loader",
-            "options": {
-              "sourceMap": false
-            }
-          }
-        ]
-      },
-      {
-        "exclude": [
-          path.join(process.cwd(), "src\\styles.css")
-        ],
-        "test": /\.styl$/,
-        "use": [
-          "exports-loader?module.exports.toString()",
-          {
-            "loader": "css-loader",
-            "options": {
-              "sourceMap": false,
-              "import": false
-            }
-          },
-          {
-            "loader": "postcss-loader",
-            "options": {
-              "ident": "postcss",
-              "plugins": postcssPlugins,
-              "sourceMap": false
-            }
           },
           {
             "loader": "stylus-loader",
             "options": {
-              "sourceMap": false,
+              "sourceMap": false, 
               "paths": []
             }
-          }
-        ]
-      },
-      {
-        "include": [
-          path.join(process.cwd(), "src\\styles.css")
-        ],
-        "test": /\.css$/,
-        "use": [
-          "style-loader",
-          {
-            "loader": "css-loader",
-            "options": {
-              "sourceMap": false,
-              "import": false
-            }
           },
-          {
-            "loader": "postcss-loader",
-            "options": {
-              "ident": "postcss",
-              "plugins": postcssPlugins,
-              "sourceMap": false
-            }
-          }
-        ]
-      },
-      {
-        "include": [
-          path.join(process.cwd(), "src\\styles.css")
-        ],
-        "test": /\.scss$|\.sass$/,
-        "use": [
-          "style-loader",
-          {
-            "loader": "css-loader",
-            "options": {
-              "sourceMap": false,
-              "import": false
-            }
-          },
-          {
-            "loader": "postcss-loader",
-            "options": {
-              "ident": "postcss",
-              "plugins": postcssPlugins,
-              "sourceMap": false
-            }
-          },
-          {
-            "loader": "sass-loader",
-            "options": {
-              "sourceMap": false,
-              "precision": 8,
-              "includePaths": []
-            }
-          }
-        ]
-      },
-      {
-        "include": [
-          path.join(process.cwd(), "src\\styles.css")
-        ],
-        "test": /\.less$/,
-        "use": [
-          "style-loader",
-          {
-            "loader": "css-loader",
-            "options": {
-              "sourceMap": false,
-              "import": false
-            }
-          },
-          {
-            "loader": "postcss-loader",
-            "options": {
-              "ident": "postcss",
-              "plugins": postcssPlugins,
-              "sourceMap": false
-            }
-          },
-          {
-            "loader": "less-loader",
-            "options": {
-              "sourceMap": false
-            }
-          }
-        ]
-      },
-      {
-        "include": [
-          path.join(process.cwd(), "src\\styles.css")
-        ],
-        "test": /\.styl$/,
-        "use": [
-          "style-loader",
-          {
-            "loader": "css-loader",
-            "options": {
-              "sourceMap": false,
-              "import": false
-            }
-          },
-          {
-            "loader": "postcss-loader",
-            "options": {
-              "ident": "postcss",
-              "plugins": postcssPlugins,
-              "sourceMap": false
-            }
-          },
-          {
-            "loader": "stylus-loader",
-            "options": {
-              "sourceMap": false,
-              "paths": []
-            }
-          }
-        ]
+          // { "loader" : "style-loader/url('https://fonts.googleapis.com/css?family=Roboto')"},  
+        ]),
+      
       },
       {
         test: /\.(scss)$/,
@@ -430,17 +252,8 @@ module.exports = {
           loader: 'style-loader', // inject CSS to page
         }, {
           loader: 'css-loader', // translates CSS into CommonJS modules
-        }, {
-          loader: 'postcss-loader', // Run post css actions
-          options: {
-            plugins: function () { // post css plugins, can be exported to postcss.config.js
-              return [
-                require('precss'),
-                require('autoprefixer')
-              ];
-            }
-          }
-        }, {
+        }, 
+       {
           loader: 'sass-loader' // compiles Sass to CSS
         }]
       },
@@ -452,6 +265,7 @@ module.exports = {
   },
   "plugins": [
     new NoEmitOnErrorsPlugin(),
+    new ExtractTextPlugin("styles.css"),
     new CopyWebpackPlugin([
       {
         "context": "src",
@@ -575,3 +389,213 @@ module.exports = {
     "historyApiFallback": true
   }
 };
+
+
+
+
+      // {
+      //   "exclude": [
+      //     path.join(process.cwd(), "src\\styles.css")
+      //   ],
+      //   "test": /\.less$/,
+      //   "use": [
+      //     "exports-loader?module.exports.toString()",
+      //     {
+      //       "loader": "css-loader",
+      //       "options": {
+      //         "sourceMap": false,
+      //         "import": false
+      //       }
+      //     },
+      //     {
+      //       "loader": "postcss-loader",
+      //       "options": {
+      //         "ident": "postcss",
+      //         "plugins": postcssPlugins,
+      //         "sourceMap": false
+      //       }
+      //     },
+      //     {
+      //       "loader": "less-loader",
+      //       "options": {
+      //         "sourceMap": false
+      //       }
+      //     }
+      //   ]
+      // },
+      // {
+      //   "exclude": [
+      //     path.join(process.cwd(), "src\\styles.css")
+      //   ],
+      //   "test": /\.styl$/,
+      //   "use": [
+      //     "exports-loader?module.exports.toString()",
+      //     {
+      //       "loader": "css-loader",
+      //       "options": {
+      //         "sourceMap": false,
+      //         "import": false
+      //       }
+      //     },
+      //     {
+      //       "loader": "postcss-loader",
+      //       "options": {
+      //         "ident": "postcss",
+      //         "plugins": postcssPlugins,
+      //         "sourceMap": false
+      //       }
+      //     },
+      //     {
+      //       "loader": "stylus-loader",
+      //       "options": {
+      //         "sourceMap": false,
+      //         "paths": []
+      //       }
+      //     }
+      //   ]
+      // },
+      // {
+      //   "include": [
+      //     path.join(process.cwd(), "src\\styles.css")
+      //   ],
+      //   "test": /\.css$/,
+      //   "use": [
+      //     "style-loader",
+      //     {
+      //       "loader": "css-loader",
+      //       "options": {
+      //         "sourceMap": false,
+      //         "import": false
+      //       }
+      //     },
+      //     {
+      //       "loader": "postcss-loader",
+      //       "options": {
+      //         "ident": "postcss",
+      //         "plugins": postcssPlugins,
+      //         "sourceMap": false
+      //       }
+      //     }
+      //   ]
+      // },
+      // {
+      //   "include": [
+      //     path.join(process.cwd(), "src\\styles.css")
+      //   ],
+      //   "test": /\.scss$|\.sass$/,
+      //   "use": [
+      //     "style-loader",
+      //     {
+      //       "loader": "css-loader",
+      //       "options": {
+      //         "sourceMap": false,
+      //         "import": false
+      //       }
+      //     },
+      //     {
+      //       "loader": "postcss-loader",
+      //       "options": {
+      //         "ident": "postcss",
+      //         "plugins": postcssPlugins,
+      //         "sourceMap": false
+      //       }
+      //     },
+      //     {
+      //       "loader": "sass-loader",
+      //       "options": {
+      //         "sourceMap": false,
+      //         "precision": 8,
+      //         "includePaths": []
+      //       }
+      //     }
+      //   ]
+      // },
+      // {
+      //   "include": [
+      //     path.join(process.cwd(), "src\\styles.css")
+      //   ],
+      //   "test": /\.less$/,
+      //   "use": [
+      //     "style-loader",
+      //     {
+      //       "loader": "css-loader",
+      //       "options": {
+      //         "sourceMap": false,
+      //         "import": false
+      //       }
+      //     },
+      //     {
+      //       "loader": "postcss-loader",
+      //       "options": {
+      //         "ident": "postcss",
+      //         "plugins": postcssPlugins,
+      //         "sourceMap": false
+      //       }
+      //     },
+      //     {
+      //       "loader": "less-loader",
+      //       "options": {
+      //         "sourceMap": false
+      //       }
+      //     }
+      //   ]
+      // },
+      // {
+      //   "include": [
+      //     path.join(process.cwd(), "src\\styles.css")
+      //   ],
+      //   "test": /\.styl$/,
+      //   "use": [
+      //     "style-loader",
+      //     {
+      //       "loader": "css-loader",
+      //       "options": {
+      //         "sourceMap": false,
+      //         "import": false
+      //       }
+      //     },
+      //     {
+      //       "loader": "postcss-loader",
+      //       "options": {
+      //         "ident": "postcss",
+      //         "plugins": postcssPlugins,
+      //         "sourceMap": false
+      //       }
+      //     },
+      //     {
+      //       "loader": "stylus-loader",
+      //       "options": {
+      //         "sourceMap": false,
+      //         "paths": []
+      //       }
+      //     }
+      //   ]
+      // },
+
+
+
+
+      // {
+      //   "exclude": [
+      //     path.join(process.cwd(), "src\\styles.css")
+      //   ],
+      //   "test": /\.css$/,
+      //   "use": [
+      //     "exports-loader?module.exports.toString()",
+      //     {
+      //       "loader": "css-loader",
+      //       "options": {
+      //         "sourceMap": false,
+      //         "import": false
+      //       }
+      //     },
+      //     {
+      //       "loader": "postcss-loader",
+      //       "options": {
+      //         "ident": "postcss",
+      //         "plugins": postcssPlugins,
+      //         "sourceMap": false
+      //       }
+      //     }
+      //   ]
+      // }, 

@@ -9,6 +9,13 @@ body{
     
 }   
 
+.nav-section{
+    position: fixed; 
+    top: 0px;
+    left: 0px;
+    right: 0px; 
+}
+
 .logo-img{    
     border-radius: 50%;
     width: 50px;
@@ -38,7 +45,7 @@ body{
   
 
 .title-section{
-    padding: 52px 15px !important;
+    padding: 30px 15px !important;
     h1{
         font-size: 40px;
         color: #f0f8fb;
@@ -156,3 +163,34 @@ body{
     }    
 }
 /*Projects Styles*/
+
+/*About Page*/
+
+.aboutFooter{
+    background: url('../assets/images/aboutUs-footer.jpg') no-repeat;
+    background-size: 100%;
+    div{ 
+        padding: 60px 30px;
+        color: #fff;
+        width: 500px;
+        margin: 0px auto;  
+        font-size: 12px;
+    }
+}
+
+/*About Page*/
+
+
+/*Contact Page*/
+
+.contact-section{
+    background: url('../assets/images/contactPage-bg.jpg') no-repeat;
+    background-size: 100%; 
+}
+
+footer{
+    background: #19283f;
+    color: #a8b9c0;
+    font-size: 12px; 
+}
+/*About Page*/

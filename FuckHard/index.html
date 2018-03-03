@@ -14,7 +14,7 @@
 </head>
 <body> 
     <!--App Component HTML.-->
-        <header class="bg-header"> 
+        <header class="nav-section"> 
                 <div class="container">
                   <div class="row"> 
                     <div class="col-sm-12">
@@ -40,13 +40,16 @@
                       </nav>
                      </div>
                   </div>
-                </div>
+                </div> 
+        </header> 
+
+        <section class="bg-header py-5">
                 <div class="container text-center title-section">
                     <h1 class="mb-0">H1, I'm Devi Shailender Singh</h1>
                     <h2>UX/UI Designer | Fron End Developer</h2>
                     <button type="button" class="btn btn-danger btn-resume mt-4">Download Resume</button>
                 </div>
-        </header>
+        </section>
         <!--App Component HTML.-->
 
 
@@ -157,14 +160,97 @@
         </section>
         
         <!--App Projects Page HTML.-->
+  
+        <!--App About Page HTML.-->
+        <section class="pt-5">
+            <div class="container py-4 text-center">
+                <div class="text-center title-section-skill mb-4">
+                        <h2 class="mb-1">Some Stuff About Me</h2>
+                        <span>SOMETHING ABOUT ME</span> 
+                        <hr color="red" size="1" width="150">
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>
+                        Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. 
 
+                        Donec rutrum congue leo eget malesuada. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Pellentesque in ipsum id orci porta dapibus. Proin eget tortor risus. Donec sollicitudin molestie malesuada.
+
+                        </p>
+                        <button type="button" class="btn btn-danger btn-resume mt-4">Download Resume</button>
+                    </div>
+                    
+                    <div class="col-md-6"><p>
+                        Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. 
+
+                        Donec rutrum congue leo eget malesuada. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Pellentesque in ipsum id orci porta dapibus. Proin eget tortor risus. Donec sollicitudin molestie malesuada.
+
+                        Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. 
+
+                        Donec rutrum congue leo eget malesuada. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Pellentesque in ipsum id orci porta dapibus. Proin eget tortor risus. Donec sollicitudin molestie malesuada.
+                    </p>
+                    </div>
+                </div>
+            </div>
+            <div class="aboutFooter">
+                <div class="text-center">
+                        Client name, Company Name <br><br>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam quis ipsum et ante tempor imperdiet. Sed eleifend metus et nisl scelerisque, ut convallis sapien facilisis."
+                        Yong Lek, Founder Abidas.
+                </div>
+            </div>
+        </section>
         <!--App About Page HTML.-->
-        <div class="container text-center title-section">
-                <h1 class="mb-0">H1, I'm Devi Shailender Singh</h1>
-                <h2>UX/UI Designer | Fron End Developer</h2>
-                <button type="button" class="btn btn-danger btn-resume mt-4">Download Resume</button>
-        </div>
-        <!--App About Page HTML.-->
+
+
+         <!--App contact Page HTML.-->
+         <section class="pt-5 contact-section">
+                <div class="container pt-4 text-center">
+                    <div class="text-center title-section-skill mb-4">
+                            <h2 class="mb-1">Get in touch</h2>
+                            <span>Wanna get in touch or talk about a project?</span> 
+                            <hr color="red" size="1" width="150">
+                    </div>
+                </div>
+                <div class="container pb-4">
+                        <form>
+                            <div class="col-md-8 mr-auto ml-auto row">
+                                <div class="col mt-4">
+                                    <input type="text" class="form-control" placeholder="NAME">
+                                </div>
+                                <div class="col mt-4"> 
+                                    <input type="email" class="form-control" id="inputEmail4" placeholder="EMAIL">
+                                </div>
+                                <div class="col-sm-12 mt-4">
+                                    <input type="text" class="form-control" id="subject" placeholder="SUBJECT">
+                                </div>
+                                <div class="col-sm-12 mt-4">
+                                    <textarea class="form-control" aria-label="With textarea" placeholder="MESSAGE"></textarea>
+                                </div>
+                                <button type="button" class="btn btn-danger btn-resume mt-4 ml-auto mr-auto">Send Message</button>
+                
+                            </div>
+                               
+                        </form>
+                </div>
+                <footer>
+                    <div class="row mr-0 ml-0 py-5">
+                        <div class="col-sm-4 text-center mb-4">
+                           <span>Social Media Links</span>
+                        </div>
+                        <div class="col-sm-4 text-center">
+                                <span>Shailender267@live.co.uk</span>
+                        </div>
+                        <div class="col-sm-4 text-center">
+                                <span>6038584491</span>
+                        </div>
+                        <hr color="#303e53" size="1" width="1064">
+                    </div>
+                  
+                </footer>
+         </section>
+        <!--App contact Page HTML.-->
 
 <!-- jQuery first, then Tether, then Bootstrap JS. -->
 <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
@@ -172,10 +258,10 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 
 <script>
-    $('#myTab a').on('click', function (e) {
-        e.preventDefault()
-        $(this).tab('show')
-    })
+    // $('#myTab a').on('click', function (e) {
+    //     e.preventDefault()
+    //     $(this).tab('show')
+    // })
 </script>
 
 

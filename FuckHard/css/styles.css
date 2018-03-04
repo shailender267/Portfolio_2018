@@ -144,3 +144,33 @@ footer {
   font-size: 12px; }
 
 /*About Page*/
+/*Projects Page*/
+.carousel.slide {
+  width: 750px !important;
+  margin: 0px auto !important;
+  height: 430px !important; }
+
+.carousel-item img {
+  width: 100%;
+  min-height: 430px !important;
+  max-height: 430px !important; }
+
+.bg-project {
+  background: rgba(25, 40, 63, 0.5) url("../assets/images/bg-header.jpg") no-repeat;
+  background-size: 100%; }
+
+.height .iconSection {
+  padding: 0px !important; }
+  .height .iconSection .col {
+    margin-bottom: 31px;
+    width: 50px;
+    background: rgba(128, 128, 128, 0.3);
+    border-radius: 5px;
+    padding: 5px !important;
+    margin-left: auto; }
+  .height .iconSection.right .col {
+    margin-right: auto;
+    margin-left: unset; }
+
+.project-content p, .project-content ul li, .project-content strong {
+  color: rgba(255, 255, 255, 0.78); }

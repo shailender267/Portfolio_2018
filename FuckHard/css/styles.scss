@@ -194,3 +194,49 @@ footer{
     font-size: 12px; 
 }
 /*About Page*/
+
+
+/*Projects Page*/
+
+.carousel.slide{
+    width: 750px !important;
+    margin: 0px auto !important;
+    height: 430px !important; 
+}
+.carousel-item img{
+    width: 100%;
+    min-height: 430px !important;
+    max-height: 430px !important;
+}
+.bg-project{
+    background: rgba(25, 40, 63, 0.5) url('../assets/images/bg-header.jpg') no-repeat;
+    //background: rgba(248, 243, 235, 0.25) url(../assets/images/bg-project.jpg) no-repeat;
+    background-size: 100%;
+}
+
+.height .iconSection{
+    // min-height: 200px;
+    // text-align: right;
+    padding: 0px !important; 
+    .col{    
+        // padding: 5px 0px !important;
+        margin-bottom: 31px;
+        width: 50px;
+        background: rgba(128, 128, 128, 0.3);
+        border-radius: 5px;
+        padding: 5px !important;
+        margin-left: auto; 
+    }
+
+    &.right .col{
+        // text-align: left; 
+        margin-right: auto; 
+        margin-left: unset; 
+    }
+
+}
+.project-content {
+    p,ul li, strong{
+        color: rgba(255, 255, 255, 0.78);  
+    }
+}
